@@ -1,0 +1,23 @@
+*
+  font-family: Arial, Helvetica, sans-serif;
+h1
+  font-size 30px
+h2
+  font-size 24px
+.checkbox-list
+  &__item
+    input
+      display none
+      & + label
+        &:before
+          content: '';
+          display: inline-block;
+          width: 20px;
+          height: 20px;
+          border: 1px solid grey;
+          border-radius: 4px;
+          margin-right: 5px;
+      &:checked
+        & + label:before
+          background red
+

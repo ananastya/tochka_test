@@ -33,7 +33,7 @@ export const TABS = [
     selected: false
   },
   {
-    name: 'Чкаловский',
+    name: 'Чкаловс  кий',
     description: {
       address: 'Рижский переулок, 16/1',
       work: 'Круглосуточно'

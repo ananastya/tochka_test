@@ -17,14 +17,15 @@ export class Tab {
 @Component({
   selector: 'tabs',
   template: `
-    <h1>Здесь будут табы</h1>
+    <h2>Травмпункты в выбранных районах</h2>
     <ul>
       <li *ngFor="let tab of showTabs"><tab (click)="setActiveTab(tab)">{{tab.name}}</tab></li>
     </ul>
     <div *ngIf="activeTab">
       
       <div>
-        {{activeTab.description}}    
+        {{activeTab.description.address}}    
+        {{activeTab.description.work}}    
       </div>
     </div>  
 

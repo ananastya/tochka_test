@@ -7,14 +7,14 @@ console.log('TABS', TABS)
 @Component({
   selector: 'tab-list',
   template: `
-    <h1>Выберите дни недели</h1>
-    <form (ngSubmit)="openTabs()">
-      <div *ngFor="let tab of tabs">
-        <tab>
-          <input name="{{tab.name}}" [(ngModel)]="tab.selected" type="checkbox" value="{{ tab.name }}"/><label>{{tab.name}}</label>
+    <h2>Выберите районы</h2>
+    <form (ngSubmit)="openTabs()" class="checkbox-list">
+      <div *ngFor="let tab of tabs; let i = index" >
+        <tab class="checkbox-list__item">
+          <input id="checkbox-{{i}}" name="{{tab.name}}" [(ngModel)]="tab.selected" type="checkbox" value="{{ tab.name }}"/><label for="checkbox-{{i}}">{{tab.name}}</label>
         </tab>
       </div>
-      <div><input type="submit" value="Подробнее"></div>
+      <div class="checkbox-list__submit"><input type="submit" value="Найти"></div>
     </form>
   `
 })
@@ -24,15 +24,13 @@ export class TabList {
   }
   tabs = TABS
   openTabs(){
-    let activeTabs:number[] = []
+    let activeTabsIndex:number[] = []
     this.tabs.forEach(function(item,index){
       if(item.selected){
-        activeTabs.push(index)
+        activeTabsIndex.push(index)
       }
     })
-    console.log(activeTabs)
-
-    this.router.navigate(['/info',activeTabs.join(',')])
+    this.router.navigate(['/info',activeTabsIndex.join(',')])
   }
 }
 
