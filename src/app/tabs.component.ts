@@ -5,7 +5,7 @@ import {ActivatedRoute} from '@angular/router';
 @Component({
   selector: 'tab',
   template: `
-      <a><ng-content></ng-content></a>
+      <ng-content></ng-content>
     `
 })
 export class Tab {
@@ -18,14 +18,14 @@ export class Tab {
   selector: 'tabs',
   template: `
     <h2>Травмпункты в выбранных районах</h2>
-    <ul>
-      <li *ngFor="let tab of showTabs"><tab (click)="setActiveTab(tab)">{{tab.name}}</tab></li>
+    <ul class="tab-list">
+      <li [ngClass]="{'active' : activeTab == tab}" class="tab-list__item" *ngFor="let tab of showTabs"><tab (click)="setActiveTab(tab)">{{tab.name}}</tab></li>
     </ul>
-    <div *ngIf="activeTab">
+    <div class="tab-list-content" *ngIf="activeTab">
       
       <div>
-        {{activeTab.description.address}}    
-        {{activeTab.description.work}}    
+        Адрес: {{activeTab.description.address}}<br>    
+        Время работы: {{activeTab.description.work}}    
       </div>
     </div>  
 
@@ -50,6 +50,7 @@ export class Tabs {
           tabs[item].selected = true
           this.showTabs.push(tabs[item])
         }
+        this.activeTab = this.showTabs[0]
       }
     });
 

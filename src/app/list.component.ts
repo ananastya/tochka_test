@@ -14,7 +14,7 @@ console.log('TABS', TABS)
           <input id="checkbox-{{i}}" name="{{tab.name}}" [(ngModel)]="tab.selected" type="checkbox" value="{{ tab.name }}"/><label for="checkbox-{{i}}">{{tab.name}}</label>
         </tab>
       </div>
-      <div class="checkbox-list__submit"><input type="submit" value="Найти"></div>
+      <input class="checkbox-list__submit" type="submit" value="Найти">
     </form>
   `
 })

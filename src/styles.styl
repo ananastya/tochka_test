@@ -1,3 +1,5 @@
+body
+  min-width 860px
 *
   font-family: Arial, Helvetica, sans-serif;
 h1
@@ -6,6 +8,8 @@ h2
   font-size 24px
 .checkbox-list
   &__item
+    margin-bottom: 10px
+    display block
     input
       display none
       & + label
@@ -17,7 +21,41 @@ h2
           border: 1px solid grey;
           border-radius: 4px;
           margin-right: 5px;
+          vertical-align middle
+          position: relative;
+          top: -2px;
       &:checked
         & + label:before
-          background red
+          background url('checked.svg')
+  &__submit
+    background: #759214;
+    color: #fff;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 16px;
 
+.tab-list
+  list-style-type none
+  padding-left 0
+  margin-bottom 0
+  &__item
+    display: inline-block;
+    margin-right: 20px;
+    tab
+      display block
+      padding: 8px 16px;
+      border-radius 4px 4px 0 0
+      border: 1px solid #a2a2a2;
+      border-bottom none
+      cursor pointer
+    &.active
+      tab
+        background #fafafa
+        position: relative;
+        top: 1px;
+.tab-list-content
+  padding: 20px;
+  border: 1px solid #a2a2a2;
+  background #fafafa
+  line-height: 30px
